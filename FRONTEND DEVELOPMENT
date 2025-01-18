@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .content {
+            display: flex;
+            flex: 1;
+            margin-top: 50px;
+        }
+        .left-menu, .right-panel {
+            width: 20%;
+            background: #f4f4f4;
+            padding: 1rem;
+        }
+        .main-content {
+            flex: 1;
+            padding: 1rem;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>Fixed Navbar</nav>
+    <div class="content">
+        <div class="left-menu">Left Menu</div>
+        <div class="main-content">Main Content</div>
+        <div class="right-panel">Right Panel</div>
+    </div>
+    <footer>Footer</footer>
+
+    <script>
+        window.addEventListener('resize', function() {
+            const width = window.innerWidth;
+            document.body.style.width = 
+                width <= 600 ? '50%' :
+                width <= 700 ? '75%' :
+                width <= 767 ? '80%' :
+                width <= 1600 ? '90%' : '100%';
+        });
+    </script>
+</body>
+</html>
