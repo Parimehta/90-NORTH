@@ -1,0 +1,25 @@
+# Add two numbers
+def lambda_add(event, context):
+    number1 = event['number1']
+    number2 = event['number2']
+    result = number1 + number2
+    return {
+        'statusCode': 200,
+        'body': {'result': result}
+    }
+
+# Store document in S3
+import boto3
+
+def lambda_store_s3(event, context):
+    s3 = boto3.client('s3')
+    bucket_name = 'your-bucket-name'
+    file_content = event['file_content']
+    file_name = event['file_name']
+    
+    s3.put_object(Bucket=bucket_name, Key=file_name, Body=file_content)
+    
+    return {
+        'statusCode': 200,
+        'body': 'File stored successfully'
+    }
